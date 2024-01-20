@@ -110,9 +110,9 @@ def predict():
         img_file = request.files['image']
         
         # Save the image to the 'static/images' directory
-        img_path = f'images/{img_file.filename}'
+        img_path = f'https://drive.google.com/drive/folders/16taT5KcuN6BWh6KbXYcmAzYs5YF0g-JV/{img_file.filename}'
         img_file.save(img_path)
-        custom_path = "images/"
+        custom_path = "https://drive.google.com/drive/folders/16taT5KcuN6BWh6KbXYcmAzYs5YF0g-JV/"
         custom_filenames = [custom_path + fname for fname in os.listdir(custom_path)]
 # for it in custom_filenames:
 #     print(it)
