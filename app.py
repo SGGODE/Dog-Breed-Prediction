@@ -5,6 +5,7 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import tensorflow as tf
 import tensorflow_hub as hub
+from gevent.pywsgi import WSGIServer
 
 app = Flask(__name__)
 
@@ -132,4 +133,6 @@ def predict():
         return render_template('index.html', prediction=predicted_breed, img_path=img_path)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
+    app.run()
